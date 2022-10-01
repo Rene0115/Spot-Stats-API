@@ -1,0 +1,27 @@
+{
+  "name": "spot-stats-api",
+  "version": "1.0.0",
+  "description": "Not a spot stats clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rene0115/Spot-Stats-API.git"
+  },
+  "author": "Rene0115",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rene0115/Spot-Stats-API/issues"
+  },
+  "homepage": "https://github.com/Rene0115/Spot-Stats-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.6.3",
+    "morgan": "^1.10.0",
+    "pino": "^8.6.1"
+  }
+}
