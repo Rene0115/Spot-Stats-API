@@ -1,8 +1,9 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import spotifyRouter from './spotify.route.js';
+import spotifyRouter from './spotify.routes.js';
 
 const router = express.Router();
+
 router.use('/spotify', spotifyRouter);
 
 export default router;

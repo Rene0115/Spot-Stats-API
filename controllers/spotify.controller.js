@@ -1,25 +1,21 @@
-/* eslint-disable import/extensions */
 /* eslint-disable class-methods-use-this */
-import querystring from 'querystring';
-import generateRandomString from '../random.string.js';
-
+/* eslint-disable camelcase */
 class SpotifyController {
-  login(req, res) {
-    const stateKey = 'spotifyAuthState';
-    const state = generateRandomString(16);
-    const scope = 'user-read-private user-read-email';
-    res.cookie(stateKey, state);
-    res.redirect(`https://accounts.spotify.com/authorize?${
-      querystring.stringify({
-        response_type: 'code',
-        client_id: process.env.CLIENT_ID,
-        scope,
-        redirect_uri: process.env.REDIRECT_URI,
-        state
-      })}`);
-  }
-  callback(req, res) {
-    
+  requestAuthorization(req, res) {
+    const client_id = process.env.CLIENT_ID;
+    let url = process.env.AUTHORIZE;
+    const redirect_uri = 'http://localhost:5000';
+    const encoded = encodeURI(redirect_uri);
+    console.log(encoded);
+    url += `?client_id=${client_id}`;
+    url += '&response_type=code';
+    url += `&redirect_uri=${encoded}`;
+    url += '&show_dialogue=true';
+    url += '&scope=user-read-private user-read-email user-modify-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private playlist-modify-private playlist-modify-public user-follow-read user-follow-modify';
+
+    return res.send({
+      data: url
+    });
   }
 }
 

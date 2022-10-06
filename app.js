@@ -3,14 +3,16 @@ import express from 'express';
 import pino from 'pino';
 import dotenv from 'dotenv';
 import 'express-async-errors';
-import middleware from './middlewares/index.middleware.js';
+import router from './routes/index.routes.js';
 
 dotenv.config();
 
 const app = express();
 const logger = pino();
-
-middleware(app);
+// app.use('*', (req, res) => {
+//   res.status(200).send('server is running, check documentation');
+// });
+app.use(router);
 
 app.listen(process.env.PORT, () => {
   let port = process.env.PORT;

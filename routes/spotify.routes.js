@@ -4,6 +4,6 @@ import spotifyController from '../controllers/spotify.controller.js';
 
 const spotifyRouter = express.Router();
 
-spotifyRouter.get('/login', spotifyController.test);
+spotifyRouter.get('/', spotifyController.requestAuthorization);
 
 export default spotifyRouter;
