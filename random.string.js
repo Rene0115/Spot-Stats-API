@@ -9,5 +9,4 @@ const generateRandomString = (length) => {
   return text;
 };
 
-console.log();
-export default generateRandomString();
+export default generateRandomString;
